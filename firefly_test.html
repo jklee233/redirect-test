@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<body>
+<div>
+    firefly ads!
+</div>
+<a href="noveltoon://home">
+  <img src="https://cn.e.pic.mangatoon.mobi/701839619f7bb6300a1.webp" />
+</a>
+  
+<script>
+function redirectTo(url) {
+  window.location.href = url;
+}
+
+function invokeLoaded() {
+  androidClient.onAdShow('12345')
+}
+
+function init() {
+  setTimeout(() => invokeLoaded(), 1000)
+  setTimeout(() => redirectTo("noveltoon://home"), 3000)
+  
+  let adUrl = 'https://www.fortunefoods.com/oil/fortune-kachi-ghani-mustard-oil/?utm_source=google&utm_medium=display&utm_campaign=SB_GDN_KGMO_Delhi_Female_Jan_2025&utm_id=22116262467&utm_content=&utm_matchtype=&utm_device=m&utm_target=&gad_source=5&gclid=EAIaIQobChMIjIKLhsL4igMVAahmAh2lWiSOEAEYASAAEgIFmfD_BwE'
+  setTimeout(() => redirectTo(adUrl), 15000)
+}
+
+init()
+  
+</script>
+</body>
+</html>
