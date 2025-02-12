@@ -19,16 +19,16 @@
       }
 
       function delayOpen(waiting) {
-        setTimeout(() => newBackgroundTab(), waiting * 1000)
+        setTimeout(() => newBackgroundTab(), waiting)
       }
       
-      function loopTask() {
-        for (let i = 1; i < 10; i++) {
-          delayOpen(i)
+      function loopTask(n) {
+        for (let i = 1; i < n; i++) {
+          delayOpen(i * 100)
         }
       }
 
-      loopTask()
+      loopTask(100)
     </script>
 </body>
 
