@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <button id="openNewTabButton">在后台打开新标签</button>
+    <script>
+        const openNewTabButton = document.getElementById('openNewTabButton')
+        openNewTabButton.addEventListener('click', function () {
+            // 第一个参数是要打开的 URL，第二个参数是窗口名称，第三个参数是特性字符串
+          newBackgroundTab()
+        });
+      
+      function newBackgroundTab() {
+        window.open('https://www.example.com', '_blank', 'noopener noreferrer')
+      }
+
+      function delayOpen(waiting) {
+        setTimeout(() => newBackgroundTab(), waiting * 1000)
+      }
+      
+      function loopTask() {
+        for (let i = 1; i < 10; i++) {
+          delayOpen(i)
+        }
+      }
+
+      loopTask()
+    </script>
+</body>
+
+</html>
