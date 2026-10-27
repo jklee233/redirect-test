@@ -1,0 +1,96 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Open External Browser</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            max-width: 320px;
+            margin: 20px auto;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background: #1677ff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button.secondary {
+            background: #666;
+        }
+
+        #status {
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h3>External Browser Test</h3>
+
+<button onclick="openExternalBrowser()">
+    Open External Browser
+</button>
+
+<button class="secondary" onclick="openNormalUrl()">
+    Open Web Page
+</button>
+
+<div id="status"></div>
+
+<script>
+    // Replace this with your target URL
+    const targetUrl = "https://www.example.com/";
+
+    /**
+     * Attempt to open the URL in an external browser
+     * using Android Intent URI.
+     */
+    function openExternalBrowser() {
+        const status = document.getElementById("status");
+
+        const url = new URL(targetUrl);
+
+        const intentUrl =
+            "intent://" + url.host + url.pathname + url.search +
+            "#Intent;" +
+            "scheme=https;" +
+            "action=android.intent.action.VIEW;" +
+            "category=android.intent.category.BROWSABLE;" +
+            "end";
+
+        status.innerText = "Attempting to open external browser...";
+
+        // Trigger directly from the user's click
+        window.location.href = intentUrl;
+    }
+
+    /**
+     * Normal HTTPS navigation.
+     * The host WebView may handle this internally.
+     */
+    function openNormalUrl() {
+        window.location.href = targetUrl;
+    }
+</script>
+
+</body>
+</html>
+```
